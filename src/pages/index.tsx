@@ -1,10 +1,10 @@
 import React from "react";
-import * as style from "../styles/home.css";
+import { page } from "../styles/home.css";
 
 const App = () => {
   return (
     <div>
-      <div className={style.page}>App</div>
+      <div className={page}>heading</div>
     </div>
   );
 };
