@@ -3,6 +3,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import * as styles from "../../styles/signup.css";
 
 const SignupForm = () => {
+  /**************************** 상태관리 **********************************/
   const [userId, setUserId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordConfirm, setPasswordConfirm] = useState<string>("");
@@ -13,6 +14,22 @@ const SignupForm = () => {
   const [isPasswordConfirmValid, setIsPaswordConfirmValid] =
     useState<boolean>(false);
 
+  /******************************************************************* */
+  /**************************** 유효성 style 반경 *********************/
+  const BORDER_RED = "1px solid red";
+  const BORDER_GREEN = "1px solid green";
+
+  const updateInputBorderStyle = (
+    inputElement: HTMLInputElement,
+    isValid: boolean
+  ) => {
+    isValid === false
+      ? (inputElement.style.border = BORDER_RED)
+      : (inputElement.style.border = BORDER_GREEN);
+  };
+
+  /******************************************************************* */
+  /**************************** 유효성 style 반경 *********************/
   const changeUserIdHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const id = e.target.value;
     setUserId(e.target.value);
@@ -20,10 +37,10 @@ const SignupForm = () => {
     const userIdRegex = /^[a-zA-Z0-9]{8,30}$/;
     if (userIdRegex.test(id) === false) {
       setIsUserIdValid(false);
-      e.currentTarget.style.border = "1px solid red";
+      updateInputBorderStyle(e.currentTarget, false);
     } else {
       setIsUserIdValid(true);
-      e.currentTarget.style.border = "1px solid green";
+      updateInputBorderStyle(e.currentTarget, true);
     }
   };
   const changePasswordHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,10 +49,10 @@ const SignupForm = () => {
     const passwordRegex = /^[a-zA-Z0-9]{8,30}$/;
     if (passwordRegex.test(pw) === false) {
       setIsPasswordValid(false);
-      e.currentTarget.style.border = "1px solid red";
+      updateInputBorderStyle(e.currentTarget, false);
     } else {
       setIsPasswordValid(true);
-      e.currentTarget.style.border = "1px solid green";
+      updateInputBorderStyle(e.currentTarget, true);
     }
   };
   const changePasswordConfirmHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -44,12 +61,14 @@ const SignupForm = () => {
 
     if (pwComfirm !== password) {
       setIsPaswordConfirmValid(false);
-      e.currentTarget.style.border = "1px solid red";
+      updateInputBorderStyle(e.currentTarget, false);
     } else {
       setIsPaswordConfirmValid(true);
-      e.currentTarget.style.border = "1px solid green";
+      updateInputBorderStyle(e.currentTarget, true);
     }
   };
+
+  /******************************************************************* */
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -59,8 +78,6 @@ const SignupForm = () => {
       password: e.currentTarget.password.value,
       phone: e.currentTarget.phone.value,
     };
-
-    console.log("body", body);
   }
 
   return (
