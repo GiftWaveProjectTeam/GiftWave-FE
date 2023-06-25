@@ -22,8 +22,8 @@
     "paths": {
       "@/*": ["./*"],
       "@tests/*": ["./__tests__/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/app/styles/*"],
+      "@components/*": ["./src/app/components/*"],
       "@pages/*": ["./src/pages/*"]
     }
   },
