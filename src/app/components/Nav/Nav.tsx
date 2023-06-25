@@ -4,7 +4,7 @@ import {
   MenuContainer,
   gridItem,
   navCotainer,
-} from "../styles/nav.css";
+} from "../../styles/nav.css";
 
 export default function Nav() {
   return (
