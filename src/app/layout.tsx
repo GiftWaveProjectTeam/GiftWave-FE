@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import "./globalStyle.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "Gift Wave",
@@ -17,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Nav />
-        <main>{children}</main>
+        <main>
+          <Providers>{children}</Providers>
+        </main>
         <Footer />
       </body>
     </html>
