@@ -3,15 +3,13 @@ import { style } from "@vanilla-extract/css";
 export const wrapper = style({
   width: "680px",
   margin: "0 auto",
-  height: "100vh",
-  backgroundColor: "tomato",
 });
 
 export const container = style({
   display: "flex",
-  flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
+  height: "100vh",
 });
 
 export const input = style({
