@@ -6,7 +6,15 @@ import {
   navCotainer,
 } from "../../styles/nav.css";
 
-export default function Nav() {
+type User = {
+  name?: string;
+};
+
+interface NavProps {
+  user: User;
+}
+
+export default function Nav({ user }: NavProps) {
   return (
     <div className={navCotainer}>
       <div>GiftWave</div>
@@ -17,7 +25,14 @@ export default function Nav() {
         <div className={gridItem}>마이페이지</div>
       </div>
       <div className={ButtonBar}>
-        <button>로그인</button>
+        {user ? (
+          <>
+            <label>{user.name}</label>
+            <button>로그아웃</button>
+          </>
+        ) : (
+          <button>로그인</button>
+        )}
       </div>
     </div>
   );
