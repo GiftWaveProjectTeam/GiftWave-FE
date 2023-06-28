@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer component renders correctly with default mode 1`] = `
+<div>
+  <div>
+    <span>
+      01
+       : 
+    </span>
+    <span>
+      30
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Timer component renders correctly with hours mode 1`] = `
+<div>
+  <div>
+    <span>
+      01
+       : 
+    </span>
+    <span>
+      60
+       : 
+    </span>
+    <span>
+      00
+    </span>
+  </div>
+</div>
+`;
