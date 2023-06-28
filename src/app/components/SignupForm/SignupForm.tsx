@@ -1,6 +1,11 @@
 "use client";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import * as styles from "../../styles/signup.css";
+import * as inputStyle from "../Atom/Input/Input.css";
+import Label from "../Atom/Label/Label";
+import Input from "../Atom/Input/Input";
+import Button from "../Atom/Button/Button";
+import { useInterval } from "../../hooks/useInterval";
 
 const SignupForm = () => {
   /**************************** 상태관리 **********************************/
@@ -16,8 +21,8 @@ const SignupForm = () => {
 
   /******************************************************************* */
   /**************************** 유효성 style 반경 *********************/
-  const BORDER_RED = "1px solid red";
-  const BORDER_GREEN = "1px solid green";
+  const BORDER_RED = "2px solid red";
+  const BORDER_GREEN = "2px solid green";
 
   const updateInputBorderStyle = (
     inputElement: HTMLInputElement,
@@ -29,7 +34,7 @@ const SignupForm = () => {
   };
 
   /******************************************************************* */
-  /**************************** 유효성 style 반경 *********************/
+  /**************************** 유효성 검사*******************************/
   const changeUserIdHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const id = e.target.value;
     setUserId(e.target.value);
@@ -69,6 +74,7 @@ const SignupForm = () => {
   };
 
   /******************************************************************* */
+  /**************************** Server 전송 *******************************/
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -80,68 +86,78 @@ const SignupForm = () => {
     };
   }
 
+  /******************************************************************* */
+  /**************************** Timer 기능  *******************************/
+
+  const [timer, setTimer] = useState<number>(0);
+
+  const [isTimer, setIsTimer] = useState<Boolean>(false);
+
+  useEffect(() => {
+    if (isTimer === true) {
+      const id = setInterval(() => {
+        setTimer(count => count + 1);
+      }, 1000);
+
+      return () => clearInterval(id);
+    }
+  }, [isTimer]);
+
+  const onClickPhoneChkHandler = () => {
+    setIsTimer(!isTimer);
+  };
+
+  /******************************************************************* */
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <div>
-          <label>아이디</label>
-        </div>
-        <input
+        <Label>아이디</Label>
+        <Input
           name="userId"
-          className={styles.input}
+          className={inputStyle.base}
           value={userId}
-          onChange={changeUserIdHandler}
-          style={{ outline: "none" }}
+          onChangeHandler={changeUserIdHandler}
         />
-        <div>...</div>
+        <Label>...</Label>
       </div>
       <div>
-        <div>
-          <label>비밀번호</label>
-        </div>
-        <input
+        <Label>비밀번호</Label>
+        <Input
           type="password"
           name="password"
-          className={styles.input}
+          className={inputStyle.base}
           value={password}
-          onChange={changePasswordHandler}
-          style={{ outline: "none" }}
+          onChangeHandler={changePasswordHandler}
         />
-        <div>...</div>
+        <Label>...</Label>
       </div>
       <div>
-        <div>
-          <label>비밀번호확인</label>
-        </div>
-        <input
+        <Label>비밀번호 확인</Label>
+        <Input
           type="password"
           name="passwordConfirm"
-          className={styles.input}
+          className={inputStyle.base}
           value={passwordConfirm}
-          onChange={changePasswordConfirmHandler}
-          style={{ outline: "none" }}
+          onChangeHandler={changePasswordConfirmHandler}
         />
-        <div>...</div>
+        <Label>...</Label>
       </div>
       <div>
-        <div>
-          <label>휴대폰인증</label>
-        </div>
-        <input name="phone" className={styles.input} />
-        <button>asdas</button>
-        <div>...</div>
+        <Label>휴대폰인증</Label>
+        <Input name="phone" className={inputStyle.base} />
+        <Button size="small" label="인증" />
+        <Label>{timer}</Label>
       </div>
       <div>
-        <div>
-          <label>인증확인</label>
-        </div>
-        <input name="phoneConfirm" className={styles.input} />
-        <button>asdasd</button>
-        <div>...</div>
+        <Label>인증확인</Label>
+        <Input name="phoneConfirm" className={inputStyle.base} />
+        <Button size="small" label="확인" />
+        <Label>...</Label>
       </div>
 
       <div>
-        <button type="submit">가입하기</button>
+        <Button type="submit" size="large" label="가입하기" />
       </div>
     </form>
   );
