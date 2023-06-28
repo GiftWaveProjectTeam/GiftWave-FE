@@ -6,7 +6,7 @@ import Home from "@/src/app/page";
 describe("<Home />", () => {
   it("renders a heading", () => {
     const { container } = render(<Home />);
-    const heading = screen.getByText("heading");
+    const heading = screen.getByText("Home");
 
     expect(heading).toBeInTheDocument();
     expect(container).toMatchSnapshot();
