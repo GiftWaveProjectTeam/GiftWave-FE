@@ -11,7 +11,7 @@ type User = {
 };
 
 interface NavProps {
-  user: User;
+  user?: User;
 }
 
 export default function Nav({ user }: NavProps) {
