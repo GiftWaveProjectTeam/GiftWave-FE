@@ -6,6 +6,7 @@ import Label from "../Atom/Label/Label";
 import Input from "../Atom/Input/Input";
 import Button from "../Atom/Button/Button";
 import { useInterval } from "../../hooks/useInterval";
+import Timer from "../Atom/Timer/Timer";
 
 const SignupForm = () => {
   /**************************** 상태관리 **********************************/
@@ -87,25 +88,8 @@ const SignupForm = () => {
   }
 
   /******************************************************************* */
-  /**************************** Timer 기능  *******************************/
 
-  const [timer, setTimer] = useState<number>(0);
-
-  const [isTimer, setIsTimer] = useState<Boolean>(false);
-
-  useEffect(() => {
-    if (isTimer === true) {
-      const id = setInterval(() => {
-        setTimer(count => count + 1);
-      }, 1000);
-
-      return () => clearInterval(id);
-    }
-  }, [isTimer]);
-
-  const onClickPhoneChkHandler = () => {
-    setIsTimer(!isTimer);
-  };
+  const [trigger, setTrigger] = useState<boolean>(false);
 
   /******************************************************************* */
 
@@ -146,8 +130,14 @@ const SignupForm = () => {
       <div>
         <Label>휴대폰인증</Label>
         <Input name="phone" className={inputStyle.base} />
-        <Button size="small" label="인증" />
-        <Label>{timer}</Label>
+        <Button
+          size="small"
+          label="인증"
+          onClickHandler={() => {
+            setTrigger(true);
+          }}
+        />
+        <Label>{trigger && <Timer maxTime={10} trigger={trigger} />}</Label>
       </div>
       <div>
         <Label>인증확인</Label>
