@@ -1,6 +1,5 @@
 import { ChangeEvent } from "react";
 import * as styles from "./Input.css";
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 
 interface InputProps {
   type?: string;
