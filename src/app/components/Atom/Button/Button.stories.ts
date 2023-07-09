@@ -7,11 +7,7 @@ const meta: Meta<typeof Button> = {
   title: "Atom/Button",
   component: Button,
   tags: ["autodocs"],
-  argTypes: {
-    backgroundColor: {
-      control: "color",
-    },
-  },
+  argTypes: {},
 };
 
 export default meta;
