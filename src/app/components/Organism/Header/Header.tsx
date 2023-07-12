@@ -4,7 +4,7 @@ import {
   MenuContainer,
   gridItem,
   navCotainer,
-} from "../../styles/nav.css";
+} from "../../../styles/nav.css";
 
 type User = {
   name?: string;
@@ -14,7 +14,7 @@ interface NavProps {
   user?: User;
 }
 
-export default function Nav({ user }: NavProps) {
+export default function Header({ user }: NavProps) {
   return (
     <div className={navCotainer}>
       <div>GiftWave</div>

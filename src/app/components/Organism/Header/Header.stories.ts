@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Nav from "./Nav";
+import Header from "./Header";
 
-const meta: Meta<typeof Nav> = {
+const meta: Meta<typeof Header> = {
   title: "Giftwave/Header",
-  component: Nav,
+  component: Header,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
   parameters: {
@@ -13,9 +13,9 @@ const meta: Meta<typeof Nav> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Nav>;
+type Story = StoryObj<typeof Header>;
 
-export const LoggedIn: Story = {
+export const LoggedOut: Story = {
   args: {
     user: {
       name: "Jane Doe",
@@ -23,4 +23,4 @@ export const LoggedIn: Story = {
   },
 };
 
-export const LoggedOut: Story = {};
+export const LoggedIn: Story = {};
