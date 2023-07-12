@@ -19,8 +19,9 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["src/*"],
       "@tests/*": ["./__tests__/*"],
       "@styles/*": ["./src/app/styles/*"],
       "@components/*": ["./src/app/components/*"],
