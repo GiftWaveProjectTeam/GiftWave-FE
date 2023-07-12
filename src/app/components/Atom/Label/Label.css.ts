@@ -40,3 +40,7 @@ export const weightVariants = styleVariants({
     },
   ],
 });
+
+export const Error = style({
+  color: "red",
+});

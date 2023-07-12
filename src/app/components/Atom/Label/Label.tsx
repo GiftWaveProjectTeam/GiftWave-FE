@@ -8,6 +8,7 @@ interface LabelProps extends ComponentPropsWithRef<"label"> {
   onDrop?: (event: React.DragEvent<HTMLLabelElement>) => void;
   size: "small" | "medium" | "large";
   weight?: "thin" | "bold";
+  error?: boolean;
 }
 
 const Label = ({
@@ -17,14 +18,13 @@ const Label = ({
   onDrop,
   size,
   weight,
+  error,
 }: LabelProps) => {
   return (
     <label
-      className={
-        weight
-          ? `${styles.sizeVariants[size]} ${styles.weightVariants[weight]}`
-          : `${styles.sizeVariants[size]}`
-      }
+      className={`${error ? styles.Error : ""} ${
+        weight ? styles.weightVariants[weight] : ""
+      } ${styles.sizeVariants[size]}`}
       onDrag={onDrag}
       onDrop={onDrop}
     >
