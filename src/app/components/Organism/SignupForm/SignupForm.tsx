@@ -1,14 +1,6 @@
 "use client";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import * as styles from "../../../styles/signup.css";
-import * as inputStyle from "../../Atom/Input/Input.css";
-import Label from "../../Atom/Label/Label";
-import Input from "../../Atom/Input/Input";
-import Button from "../../Atom/Button/Button";
-import { useInterval } from "../../../hooks/useInterval";
-import Timer from "../../Atom/Timer/Timer";
-import LabelInput from "../../Molecule/LabelInput/LabelInput";
-import AuthInput from "./AuthInput/AuthInput";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { Button, AuthInput, LabelInput } from "@components";
 
 const SignupForm = () => {
   /**************************** 상태관리 **********************************/

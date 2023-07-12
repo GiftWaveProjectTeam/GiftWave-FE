@@ -1,8 +1,7 @@
 import React, { ChangeEvent } from "react";
-import Label from "../../Atom/Label/Label";
-import Input from "../../Atom/Input/Input";
-import * as inputStyle from "../../Atom/Input/Input.css";
+import * as inputStyle from "@components/Atom/Input/Input.css";
 import { columnInput, Wrapper } from "./LabelInput.css";
+import { Input, Label } from "@components";
 
 interface LabelInputProps {
   label: string;

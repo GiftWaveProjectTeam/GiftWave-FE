@@ -1,11 +1,8 @@
 "use client";
 import React, { SetStateAction, useRef, useState } from "react";
-import Label from "../../../Atom/Label/Label";
-import Input from "../../../Atom/Input/Input";
 import * as InputStyles from "../../../Atom/Input/Input.css";
 import * as styles from "./AuthInput.css";
-import Button from "../../../Atom/Button/Button";
-import Timer from "../../../Atom/Timer/Timer";
+import { Label, Input, Timer, Button } from "@components";
 
 interface AuthInputProps {
   name: string;
