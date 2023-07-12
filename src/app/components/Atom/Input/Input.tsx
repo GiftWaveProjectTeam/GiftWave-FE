@@ -6,7 +6,6 @@ interface InputProps {
   name?: string;
   className?: string;
   value?: string;
-  border?: string;
   onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -14,7 +13,6 @@ export default function Input({
   type,
   name,
   className,
-  border,
   value,
   onChangeHandler,
 }: InputProps) {
@@ -23,7 +21,6 @@ export default function Input({
       type={type}
       name={name}
       className={className}
-      style={{ borderColor: `${border}` }}
       value={value}
       onChange={onChangeHandler}
     />

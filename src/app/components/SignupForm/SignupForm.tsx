@@ -13,7 +13,7 @@ const SignupForm = () => {
   const [userId, setUserId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordConfirm, setPasswordConfirm] = useState<string>("");
-  const [phone, stePhone] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
 
   const [isUserIdValid, setIsUserIdValid] = useState<boolean>(false);
   const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
@@ -21,20 +21,7 @@ const SignupForm = () => {
     useState<boolean>(false);
 
   /******************************************************************* */
-  /**************************** 유효성 style 반경 *********************/
-  const BORDER_RED = "2px solid red";
-  const BORDER_GREEN = "2px solid green";
 
-  const updateInputBorderStyle = (
-    inputElement: HTMLInputElement,
-    isValid: boolean
-  ) => {
-    isValid === false
-      ? (inputElement.style.border = BORDER_RED)
-      : (inputElement.style.border = BORDER_GREEN);
-  };
-
-  /******************************************************************* */
   /**************************** 유효성 검사*******************************/
   const changeUserIdHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const id = e.target.value;
@@ -43,10 +30,8 @@ const SignupForm = () => {
     const userIdRegex = /^[a-zA-Z0-9]{8,30}$/;
     if (userIdRegex.test(id) === false) {
       setIsUserIdValid(false);
-      updateInputBorderStyle(e.currentTarget, false);
     } else {
       setIsUserIdValid(true);
-      updateInputBorderStyle(e.currentTarget, true);
     }
   };
   const changePasswordHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,10 +40,8 @@ const SignupForm = () => {
     const passwordRegex = /^[a-zA-Z0-9]{8,30}$/;
     if (passwordRegex.test(pw) === false) {
       setIsPasswordValid(false);
-      updateInputBorderStyle(e.currentTarget, false);
     } else {
       setIsPasswordValid(true);
-      updateInputBorderStyle(e.currentTarget, true);
     }
   };
   const changePasswordConfirmHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -67,10 +50,8 @@ const SignupForm = () => {
 
     if (pwComfirm !== password) {
       setIsPaswordConfirmValid(false);
-      updateInputBorderStyle(e.currentTarget, false);
     } else {
       setIsPaswordConfirmValid(true);
-      updateInputBorderStyle(e.currentTarget, true);
     }
   };
 
@@ -79,12 +60,6 @@ const SignupForm = () => {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    const body = {
-      userId: e.currentTarget.userId.value,
-      password: e.currentTarget.password.value,
-      phone: e.currentTarget.phone.value,
-    };
   }
 
   /******************************************************************* */
@@ -94,60 +69,84 @@ const SignupForm = () => {
   /******************************************************************* */
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form data-testid="submit-form" onSubmit={handleSubmit}>
       <div>
-        <Label>아이디</Label>
-        <Input
-          name="userId"
-          className={inputStyle.base}
-          value={userId}
-          onChangeHandler={changeUserIdHandler}
-        />
+        <Label>
+          아이디
+          <Input
+            name="userId"
+            className={`${inputStyle.base}
+            ${
+              userId !== "" &&
+              (isUserIdValid ? inputStyle.okValid : inputStyle.notValid)
+            }`}
+            value={userId}
+            onChangeHandler={changeUserIdHandler}
+          />
+        </Label>
+        <Label>아이디는 6자이상 어쩌꾸~</Label>
+      </div>
+      <div>
+        <Label>
+          비밀번호
+          <Input
+            type="password"
+            name="password"
+            className={`${inputStyle.base}
+            ${
+              password !== "" &&
+              (isPasswordValid ? inputStyle.okValid : inputStyle.notValid)
+            }`}
+            value={password}
+            onChangeHandler={changePasswordHandler}
+          />
+        </Label>
         <Label>...</Label>
       </div>
       <div>
-        <Label>비밀번호</Label>
-        <Input
-          type="password"
-          name="password"
-          className={inputStyle.base}
-          value={password}
-          onChangeHandler={changePasswordHandler}
-        />
+        <Label>
+          비밀번호 확인
+          <Input
+            type="password"
+            name="passwordConfirm"
+            className={`${inputStyle.base}
+          ${
+            passwordConfirm !== "" &&
+            (isPasswordConfirmValid ? inputStyle.okValid : inputStyle.notValid)
+          }`}
+            value={passwordConfirm}
+            onChangeHandler={changePasswordConfirmHandler}
+          />
+        </Label>
         <Label>...</Label>
       </div>
       <div>
-        <Label>비밀번호 확인</Label>
-        <Input
-          type="password"
-          name="passwordConfirm"
-          className={inputStyle.base}
-          value={passwordConfirm}
-          onChangeHandler={changePasswordConfirmHandler}
-        />
-        <Label>...</Label>
-      </div>
-      <div>
-        <Label>휴대폰인증</Label>
-        <Input name="phone" className={inputStyle.base} />
-        <Button
+        <Label>
+          휴대폰인증
+          <Input name="phone" className={inputStyle.base} />
+          {/* <Button
           size="small"
           label="인증"
           onClickHandler={() => {
             setTrigger(true);
           }}
-        />
+        /> */}
+        </Label>
+        <button onClick={() => setTrigger(true)}>인증</button>
         <Label>{trigger && <Timer maxTime={10} trigger={trigger} />}</Label>
       </div>
       <div>
-        <Label>인증확인</Label>
-        <Input name="phoneConfirm" className={inputStyle.base} />
-        <Button size="small" label="확인" />
+        <Label>
+          인증확인
+          <Input name="phoneConfirm" className={inputStyle.base} />
+          {/* <Button size="small" label="확인" /> */}
+        </Label>
         <Label>...</Label>
       </div>
 
       <div>
-        <Button type="submit" size="large" label="가입하기" />
+        <button type="submit">가입하기</button>
+        {/* <Button type="submit" size="large" label="가입하기" /> */}
       </div>
     </form>
   );

@@ -10,14 +10,12 @@ export const base = style({
 });
 
 export const okValid = style([
-  base,
   {
     borderColor: "green",
   },
 ]);
 
 export const notValid = style([
-  base,
   {
     borderColor: "red",
   },
