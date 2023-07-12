@@ -6,6 +6,12 @@ const base = style({
   borderRadius: "10px",
   display: "inline-block",
   lineHeight: 1,
+  backgroundColor: "oatmeal",
+  color: "grey",
+  ":hover": {
+    backgroundColor: "blue",
+    color: "white",
+  },
 });
 
 export const sizeVariants = styleVariants({
@@ -29,6 +35,16 @@ export const sizeVariants = styleVariants({
       fontSize: "16px",
       padding: "12px 24px",
       width: "350px",
+    },
+  ],
+});
+
+export const colorVariants = styleVariants({
+  important: [
+    base,
+    {
+      backgroundColor: "red",
+      color: "white",
     },
   ],
 });

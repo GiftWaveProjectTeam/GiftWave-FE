@@ -7,6 +7,7 @@ const meta: Meta<typeof Input> = {
   title: "Atom/Input",
   component: Input,
   tags: ["autodocs"],
+  parameters: { className: `${styles.base}` },
   argTypes: {},
 };
 
@@ -14,13 +15,13 @@ export default meta;
 
 type Story = StoryObj<typeof Input>;
 
-export const okValid: Story = {
+export const OkValid: Story = {
   args: {
     className: `${styles.okValid}`,
   },
 };
 
-export const notValid: Story = {
+export const NotValid: Story = {
   args: {
     className: `${styles.notValid}`,
   },

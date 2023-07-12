@@ -1,14 +1,35 @@
-import { ReactNode } from "react";
+import { ComponentPropsWithRef, ReactNode } from "react";
+import * as styles from "./Label.css";
 
-interface LabelProps {
+interface LabelProps extends ComponentPropsWithRef<"label"> {
   children: ReactNode;
+  className?: string;
+  onDrag?: (event: React.DragEvent<HTMLLabelElement>) => void;
+  onDrop?: (event: React.DragEvent<HTMLLabelElement>) => void;
+  size: "small" | "medium" | "large";
+  weight?: "thin" | "bold";
 }
 
-const Label = ({ children }: LabelProps) => {
+const Label = ({
+  children,
+  className,
+  onDrag,
+  onDrop,
+  size,
+  weight,
+}: LabelProps) => {
   return (
-    <div>
-      <label>{children}</label>
-    </div>
+    <label
+      className={
+        weight
+          ? `${styles.sizeVariants[size]} ${styles.weightVariants[weight]}`
+          : `${styles.sizeVariants[size]}`
+      }
+      onDrag={onDrag}
+      onDrop={onDrop}
+    >
+      {children}
+    </label>
   );
 };
 

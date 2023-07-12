@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, getByRole } from "@testing-library/react";
 import SignupForm from "./SignupForm";
 
 describe("SignupForm", () => {
@@ -13,10 +13,10 @@ describe("SignupForm", () => {
     const userIdInput = screen.getByLabelText("아이디");
 
     fireEvent.change(userIdInput, { target: { value: "!@#@" } });
-    expect(userIdInput.style.border).toContain("2px solid red");
+    expect(userIdInput).toHaveStyle("borderColor : red");
 
     fireEvent.change(userIdInput, { target: { value: "testuser123" } });
-    expect(userIdInput.style.border).toContain("2px solid green");
+    expect(userIdInput).toHaveStyle("borderColor :  green");
   });
 
   it("check the password is required and valid", () => {
@@ -27,14 +27,14 @@ describe("SignupForm", () => {
     fireEvent.change(passwordInput, { target: { value: "123456as" } });
     fireEvent.change(passwordConfirmInput, { target: { value: "123456as" } });
 
-    expect(passwordInput.style.border).toContain("2px solid green");
-    expect(passwordConfirmInput.style.border).toContain("2px solid green");
+    expect(passwordInput).toHaveStyle("borderColor : green");
+    expect(passwordConfirmInput).toHaveStyle("borderColor : green");
 
     fireEvent.change(passwordInput, { target: { value: "123" } });
     fireEvent.change(passwordConfirmInput, { target: { value: "asd" } });
 
-    expect(passwordInput.style.border).toContain("2px solid red");
-    expect(passwordConfirmInput.style.border).toContain("2px solid red");
+    expect(passwordInput).toHaveStyle("borderColor :  red");
+    expect(passwordConfirmInput).toHaveStyle("borderColor : red");
   });
 
   it("successfully submits the with valid inputs", async () => {
@@ -52,9 +52,9 @@ describe("SignupForm", () => {
 
     fireEvent.click(signupButton);
 
-    expect(console.log).toHaveBeenLastCalledWith({
+    expect(screen.getByTestId("submit-form")).toHaveFormValues({
       userId: "testuser123",
-      password: "testpassword123",
+      password: "password123",
       phone: "01012345678",
     });
   });

@@ -1,19 +1,19 @@
 import { MouseEvent, ReactNode } from "react";
-import { sizeVariants } from "./Button.css";
+import { colorVariants, sizeVariants } from "./Button.css";
 
 export interface ButtonProps {
   size: "small" | "medium" | "large";
   label?: string;
   type?: "button" | "reset" | "submit" | undefined;
-  backgroundColor?: string;
+  color?: "important";
   onClickHandler?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export default function Button({
   size,
   label,
-  backgroundColor,
   type,
+  color,
   onClickHandler,
   ...props
 }: ButtonProps) {
@@ -21,8 +21,11 @@ export default function Button({
     <button
       type={type}
       {...props}
-      className={sizeVariants[size]}
-      style={{ backgroundColor: `${backgroundColor}` }}
+      className={
+        color
+          ? `${sizeVariants[size]} ${colorVariants[color]}`
+          : `${sizeVariants[size]}`
+      }
       onClick={onClickHandler}
     >
       {label}

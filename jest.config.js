@@ -47,7 +47,7 @@ const customJestConfig = {
     "^@/public/(.*)$": "<rootDir>/public/$1",
   },
   // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "jsdom",
   transform: {
@@ -57,6 +57,7 @@ const customJestConfig = {
     // transform config for vanilla extract
     "\\.css\\.ts$": "@vanilla-extract/jest-transform",
   },
+  testMatch: ["**/?(*.)+(test).[jt]s?(x)"],
   transformIgnorePatterns: [
     "/node_modules/",
     "^.+\\.module\\.(css|sass|scss)$",
