@@ -25,7 +25,8 @@
       "@tests/*": ["./__tests__/*"],
       "@styles/*": ["./src/app/styles/*"],
       "@components/*": ["./src/app/components/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@components": ["src/app/components/index.ts"]
     }
   },
   "include": [
