@@ -26,7 +26,10 @@
       "@styles/*": ["./src/app/styles/*"],
       "@components/*": ["./src/app/components/*"],
       "@pages/*": ["./src/pages/*"],
-      "@components": ["src/app/components/index.ts"]
+      "@components": ["src/app/components/index.ts"],
+      "@utils": ["src/app/utils/index.ts"],
+      "@hooks": ["src/app/hooks/index.ts"],
+      "@lib": ["src/app/lib/index.ts"]
     }
   },
   "include": [
