@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import { SignupForm } from "../components";
 import * as styles from "../styles/signup.css";
 
