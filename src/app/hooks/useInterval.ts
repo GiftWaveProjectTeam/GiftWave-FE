@@ -2,11 +2,7 @@ import { useEffect, useRef } from "react";
 
 type Callback = () => void;
 
-export function useInterval(
-  callback: Callback,
-  delay: number,
-  trigger?: boolean
-) {
+const useInterval = (callback: Callback, delay: number, trigger?: boolean) => {
   const savedCallback = useRef<Callback>();
 
   //Remember the latest callback
@@ -24,4 +20,6 @@ export function useInterval(
       return () => clearInterval(id);
     }
   }, [delay, trigger]);
-}
+};
+
+export default useInterval;
