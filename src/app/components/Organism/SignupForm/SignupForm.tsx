@@ -1,85 +1,61 @@
 "use client";
-import { ChangeEvent, FormEvent, useState } from "react";
 import { Button, AuthInput, LabelInput } from "@components";
+import { useForm } from "@hooks";
+import { formValidator } from "@utils";
 
 const SignupForm = () => {
-  /**************************** 상태관리 **********************************/
-  const [userId, setUserId] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [passwordConfirm, setPasswordConfirm] = useState<string>("");
-  const [phone, setPhone] = useState<string>("");
+  const { values, errors, changeHandler, submitHandler } = useForm({
+    initialValues: {
+      userId: "",
+      password: "",
+      passwordConfirm: "",
+    },
+    onSubmit: async () => {},
+    validate: ({ userId, password, passwordConfirm }) => {
+      const errors: { [key: string]: string } = {};
 
-  const [isUserIdValid, setIsUserIdValid] = useState<boolean>(false);
-  const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
-  const [isPasswordConfirmValid, setIsPaswordConfirmValid] =
-    useState<boolean>(false);
+      if (!formValidator.validateUserId(userId)) {
+        errors.userId = "아이디 형식에 맞지 않습니다. ";
+      }
 
-  /******************************************************************* */
+      if (!formValidator.validatePassword(password)) {
+        errors.password = "비밀번호 형식에 맞지 않습니다.";
+      }
 
-  /**************************** 유효성 검사*******************************/
-  const changeUserIdHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const id = e.target.value;
-    setUserId(e.target.value);
-
-    const userIdRegex = /^[a-zA-Z0-9]{8,30}$/;
-    if (userIdRegex.test(id) === false) {
-      setIsUserIdValid(false);
-    } else {
-      setIsUserIdValid(true);
-    }
-  };
-  const changePasswordHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const pw = e.target.value;
-    setPassword(pw);
-    const passwordRegex = /^[a-zA-Z0-9]{8,30}$/;
-    if (passwordRegex.test(pw) === false) {
-      setIsPasswordValid(false);
-    } else {
-      setIsPasswordValid(true);
-    }
-  };
-  const changePasswordConfirmHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const pwComfirm = e.target.value;
-    setPasswordConfirm(pwComfirm);
-
-    if (pwComfirm !== password) {
-      setIsPaswordConfirmValid(false);
-    } else {
-      setIsPaswordConfirmValid(true);
-    }
-  };
-
-  /******************************************************************* */
-  /**************************** Server 전송 *******************************/
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-  }
-
-  /******************************************************************* */
+      if (!formValidator.validatePasswordConfirm(password, passwordConfirm)) {
+        errors.passwordConfirm = "비밀번호와 같지 않습니다.";
+      }
+      return errors;
+    },
+  });
 
   return (
-    <form data-testid="submit-form" onSubmit={handleSubmit}>
+    <form data-testid="submit-form" onSubmit={submitHandler}>
       <LabelInput
+        name="userId"
         label="아이디"
-        value={userId}
-        isValid={isUserIdValid}
-        error="아이디 형식이 맞지 않습니다."
-        onChangeHandler={changeUserIdHandler}
+        value={values.userId}
+        isValid={errors.userId ? false : true}
+        error={errors.userId}
+        onChangeHandler={changeHandler}
       />
       <LabelInput
+        name="password"
         label="비밀번호"
-        value={password}
-        isValid={isPasswordValid}
-        error="비밀번호 형식이 맞지 않습니다."
-        onChangeHandler={changePasswordHandler}
+        type="password"
+        value={values.password}
+        isValid={errors.password ? false : true}
+        error={errors.password}
+        onChangeHandler={changeHandler}
       />
       <LabelInput
+        name="passwordConfirm"
         label="비밀번호 확인"
-        value={passwordConfirm}
-        isValid={isPasswordConfirmValid}
-        error="비밀번호가 맞지 않습니다."
-        onChangeHandler={changePasswordConfirmHandler}
+        type="password"
+        value={values.passwordConfirm}
+        isValid={errors.passwordConfirm ? false : true}
+        error={errors.passwordConfirm}
+        onChangeHandler={changeHandler}
       />
       <AuthInput label="휴대폰인증" name="phone" />
       <div>
