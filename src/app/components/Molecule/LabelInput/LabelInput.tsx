@@ -8,6 +8,8 @@ interface LabelInputProps {
   value: string;
   isValid: boolean;
   error: string;
+  name: string;
+  type?: "text" | "file" | "password" | "radio" | "select" | "checkbox";
   onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -16,6 +18,8 @@ const LabelInput = ({
   value,
   isValid,
   error,
+  name,
+  type,
   onChangeHandler,
 }: LabelInputProps) => {
   return (
@@ -23,7 +27,8 @@ const LabelInput = ({
       <div className={columnInput}>
         <Label size="medium">{label} </Label>
         <Input
-          name="userId"
+          type={type}
+          name={name}
           className={`${inputStyle.base}
         ${
           value !== "" && (isValid ? inputStyle.okValid : inputStyle.notValid)
