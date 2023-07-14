@@ -12,6 +12,10 @@ interface AuthInputProps {
 const AuthInput = ({ label, name }: AuthInputProps) => {
   const [trigger, setTrigger] = useState<boolean>(false);
   const [timeout, setTimeout] = useState<boolean>(false);
+
+  const onClickHanlder = () => {
+    setTrigger(false);
+  };
   return (
     <>
       <div className={styles.Wrapper}>
@@ -60,14 +64,7 @@ const AuthInput = ({ label, name }: AuthInputProps) => {
           <Label size="medium">인증확인 </Label>
           <div className={styles.InputButtonBox}>
             <Input name="phoneConfirm" className={InputStyles.base} />
-            <Button
-              size="small"
-              label="확인"
-              onClickHandler={() => {
-                //서버에 전송후, 검증이 완료되면 Timer 종료
-                setTrigger(false);
-              }}
-            />
+            <Button size="small" label="확인" onClickHandler={onClickHanlder} />
           </div>
         </div>
         <Label size="medium">...</Label>
