@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import LabelInput from "./LabelInput";
 
-// eslint-disable-next-line storybook/story-exports
 const meta: Meta<typeof LabelInput> = {
   title: "Molecule/LabelInput",
   component: LabelInput,
