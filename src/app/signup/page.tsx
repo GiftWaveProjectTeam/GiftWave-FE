@@ -1,5 +1,6 @@
+import { FormEvent } from "react";
+import { SignupForm } from "../components";
 import * as styles from "../styles/signup.css";
-import SignupForm from "../components/SignupForm/SignupForm";
 
 export default function SignupPage() {
   return (

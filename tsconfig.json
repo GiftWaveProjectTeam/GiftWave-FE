@@ -19,12 +19,17 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["src/*"],
       "@tests/*": ["./__tests__/*"],
       "@styles/*": ["./src/app/styles/*"],
       "@components/*": ["./src/app/components/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@components": ["src/app/components/index.ts"],
+      "@utils": ["src/app/utils/index.ts"],
+      "@hooks": ["src/app/hooks/index.ts"],
+      "@lib": ["src/app/lib/index.ts"]
     }
   },
   "include": [

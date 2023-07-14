@@ -3,10 +3,9 @@ import { createVar, style, styleVariants } from "@vanilla-extract/css";
 export const base = style({
   outline: "none",
   borderRadius: "5px",
-  borderStyle: "solid",
-  borderWidth: "2px",
+  border: "1px solid black",
   width: "350px",
-  height: "30px",
+  height: "36px",
 });
 
 export const okValid = style([
@@ -21,8 +20,9 @@ export const notValid = style([
   },
 ]);
 
-export const brandColor = createVar();
-
-export const InputColor = style({
-  borderColor: brandColor,
+export const AuthStyle = style({
+  border: "none",
+  outline: "none",
+  width: "240px",
+  height: "30px",
 });

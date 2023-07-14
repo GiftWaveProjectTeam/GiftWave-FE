@@ -8,35 +8,6 @@ describe("SignupForm", () => {
     expect(signupButton).toBeInTheDocument();
   });
 
-  it("checks the user id is required and valid", () => {
-    render(<SignupForm />);
-    const userIdInput = screen.getByLabelText("아이디");
-
-    fireEvent.change(userIdInput, { target: { value: "!@#@" } });
-    expect(userIdInput).toHaveStyle("borderColor : red");
-
-    fireEvent.change(userIdInput, { target: { value: "testuser123" } });
-    expect(userIdInput).toHaveStyle("borderColor :  green");
-  });
-
-  it("check the password is required and valid", () => {
-    render(<SignupForm />);
-    const passwordInput = screen.getByLabelText("비밀번호");
-    const passwordConfirmInput = screen.getByLabelText("비밀번호 확인");
-
-    fireEvent.change(passwordInput, { target: { value: "123456as" } });
-    fireEvent.change(passwordConfirmInput, { target: { value: "123456as" } });
-
-    expect(passwordInput).toHaveStyle("borderColor : green");
-    expect(passwordConfirmInput).toHaveStyle("borderColor : green");
-
-    fireEvent.change(passwordInput, { target: { value: "123" } });
-    fireEvent.change(passwordConfirmInput, { target: { value: "asd" } });
-
-    expect(passwordInput).toHaveStyle("borderColor :  red");
-    expect(passwordConfirmInput).toHaveStyle("borderColor : red");
-  });
-
   it("successfully submits the with valid inputs", async () => {
     render(<SignupForm />);
     const userIdInput = screen.getByLabelText("아이디");

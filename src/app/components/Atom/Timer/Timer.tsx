@@ -1,14 +1,25 @@
-import { useInterval } from "@/src/app/hooks/useInterval";
-import { useState } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import React from "react";
+import { TimerVariant } from "./Timer.css";
+import { useInterval } from "@hooks";
 
 interface TimerProps {
   maxTime: number;
-  trigger: boolean;
-  mode?: string;
+  mode?: "seconds" | "minutes" | "hours";
+  trigger?: boolean;
+  setTrigger?: React.Dispatch<React.SetStateAction<boolean>>;
+  timeout?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Timer = ({ maxTime, trigger, mode = "minutes" }: TimerProps) => {
+const Timer = ({
+  maxTime,
+  trigger,
+  setTrigger,
+  timeout,
+  mode = "minutes",
+}: TimerProps) => {
   const [timer, setTimer] = useState<number>(maxTime);
 
   const hours = Math.floor(timer / 3600)
@@ -19,8 +30,10 @@ const Timer = ({ maxTime, trigger, mode = "minutes" }: TimerProps) => {
     .padStart(2, "0");
   const seconds = (timer % 60).toString().padStart(2, "0");
 
+  timeout && timer === 0 && timeout(true);
+
   if (timer === 0) {
-    trigger = false;
+    setTrigger && setTrigger(false);
   }
   useInterval(
     () => {
@@ -30,8 +43,12 @@ const Timer = ({ maxTime, trigger, mode = "minutes" }: TimerProps) => {
     trigger
   );
 
+  useEffect(() => {
+    setTimer(maxTime);
+  }, [maxTime]);
+
   return (
-    <div>
+    <div className={TimerVariant[mode]}>
       {mode === "hours" &&
         (hours !== "0" ? <span>{hours} : </span> : <span>00 : </span>)}
       {minutes !== "0" ? <span>{minutes} : </span> : <span>00 : </span>}
