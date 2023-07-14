@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 export interface PortalProps {
