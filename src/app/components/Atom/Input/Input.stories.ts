@@ -17,12 +17,12 @@ type Story = StoryObj<typeof Input>;
 
 export const OkValid: Story = {
   args: {
-    className: `${styles.okValid}`,
+    className: `${styles.okValid} ${styles.base}`,
   },
 };
 
 export const NotValid: Story = {
   args: {
-    className: `${styles.notValid}`,
+    className: `${styles.notValid} ${styles.base}`,
   },
 };
