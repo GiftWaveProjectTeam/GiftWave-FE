@@ -22,7 +22,7 @@ const Label = ({
 }: LabelProps) => {
   return (
     <label
-      className={`${error ? styles.Error : ""} ${
+      className={`${error ? styles.error : ""} ${
         weight ? styles.weightVariants[weight] : ""
       } ${styles.sizeVariants[size]}`}
       onDrag={onDrag}
