@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Card, Percentage, Text } from "@components";
 
 interface FundingCardProps {
   title: string;
   maxAmount: number;
   curAmount: number;
-  image: string;
+  image: string | StaticImageData;
 }
 
 const FundingCard = ({
