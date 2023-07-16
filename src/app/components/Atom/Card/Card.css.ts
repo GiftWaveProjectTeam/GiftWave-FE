@@ -4,9 +4,7 @@ export const base = style({
   width: 342,
   height: 342,
   border: "none",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  boxSizing: "border-box",
 });
 
 export const cardVariants = styleVariants({
@@ -17,6 +15,10 @@ export const cardVariants = styleVariants({
       height: 399,
       border: "1px solid #000000",
       borderRadius: 10,
+      padding: 20,
+      display: "flex",
+      flexDirection: "column",
+      gap: "10px",
     },
   ],
   recommend: [
