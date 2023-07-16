@@ -16,11 +16,13 @@ export const titleVariant = styleVariants({
     fontSize: 40,
     fontWeight: 700,
     color: "#000000",
+    width: "100%",
   },
   subTitle: {
     fontSize: 16,
     fontWeight: 500,
     color: "#BFBFBF",
+    width: "100%",
   },
   cardTitle: {
     fontSize: 20,
@@ -31,6 +33,7 @@ export const titleVariant = styleVariants({
     fontSize: 18,
     fontWeight: 500,
     color: "#353535",
+    width: "100%",
   },
   search: {
     fontSize: 20,
