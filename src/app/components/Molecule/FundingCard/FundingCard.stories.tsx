@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof FundingCard>;
 
-export const Funding = {
+export const Funding: Story = {
   args: {
     title: "아이즈원 장원영의 생일선물 모금 펀딩 함께해요!",
     maxAmount: 240000,
