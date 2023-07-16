@@ -26,6 +26,9 @@ export const cardVariants = styleVariants({
     {
       height: 407,
       borderRadius: 6,
+      display: "flex",
+      flexDirection: "column",
+      gap: "10px",
     },
   ],
   search: [
