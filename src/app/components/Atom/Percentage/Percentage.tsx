@@ -17,6 +17,8 @@ const Percentage = ({
   const [curWidth, setCurWdith] = useState(0);
   const [percent, setPercent] = useState(0);
 
+  if (curAmount > maxAmount) curAmount = maxAmount;
+
   useEffect(() => {
     const newCurWdith = Math.floor((curAmount / maxAmount) * 150);
     const newPercent = Math.floor((curAmount / maxAmount) * 100);
