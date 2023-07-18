@@ -20,9 +20,18 @@ export const notValid = style([
   },
 ]);
 
-export const AuthStyle = style({
+export const authStyle = style({
   border: "none",
   outline: "none",
   width: "240px",
   height: "30px",
+});
+
+export const search = style({
+  border: "none",
+  outline: "none",
+  marginLeft: "30px",
+  width: "100%",
+  fontSize: "18px",
+  fontWeight: 500,
 });

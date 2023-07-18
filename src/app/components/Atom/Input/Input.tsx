@@ -9,6 +9,7 @@ interface InputProps {
   onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   checked?: boolean;
+  placeholder?: string;
 }
 
 export default function Input({
@@ -19,6 +20,7 @@ export default function Input({
   onChangeHandler,
   disabled,
   checked,
+  placeholder,
 }: InputProps) {
   return (
     <input
@@ -29,6 +31,7 @@ export default function Input({
       className={className}
       value={value}
       onChange={onChangeHandler}
+      placeholder={placeholder}
     />
   );
 }
