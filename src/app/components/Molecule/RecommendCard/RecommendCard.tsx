@@ -2,14 +2,19 @@
 
 import { Card, Text } from "@components";
 import Image, { StaticImageData } from "next/image";
+import noImg from "../../../../../public/noImg.png";
 
 interface RecommendCardProps {
   title: string;
   amount: number;
-  image: string | StaticImageData;
+  image?: string | StaticImageData;
 }
 
-const RecommendCard = ({ title, amount, image }: RecommendCardProps) => {
+const RecommendCard = ({
+  title,
+  amount,
+  image = noImg,
+}: RecommendCardProps) => {
   return (
     <Card cardType="recommend">
       <Image src={image} width={345} height={334} alt="recommend Card" />
