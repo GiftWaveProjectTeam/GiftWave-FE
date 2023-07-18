@@ -8,7 +8,7 @@ export { default as Timer } from "@components/Atom/Timer/Timer";
 export { default as Text } from "@components/Atom/Text/Text";
 export { default as Percentage } from "@components/Atom/Percentage/Percentage";
 export { default as SearchIcon } from "@components/Atom/SearchIcon/SearchIcon";
-
+export { default as GiftWaveLogo } from "@components/Atom/GiftWaveLogo/GiftWaveLogo";
 //molecules
 export { default as LabelInput } from "./Molecule/LabelInput/LabelInput";
 export { default as AuthInput } from "./Organism/SignupForm/AuthInput/AuthInput";
