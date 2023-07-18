@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof RecommendCard>;
 
-export const recommend: Story = {
+export const Recommend: Story = {
   args: {
     title: "닌텐도 스위치 OLED",
     amount: 369190,
