@@ -1,18 +1,19 @@
 import Image, { StaticImageData } from "next/image";
 import { Card, Percentage, Text } from "@components";
+import noImg from "../../../../../public/noImg.png";
 
 interface FundingCardProps {
   title: string;
   maxAmount: number;
   curAmount: number;
-  image: string | StaticImageData;
+  image?: string | StaticImageData;
 }
 
 const FundingCard = ({
-  title,
-  maxAmount,
-  curAmount,
-  image,
+  title = "",
+  maxAmount = 0,
+  curAmount = 0,
+  image = noImg,
 }: FundingCardProps) => {
   return (
     <Card cardType="popular">
