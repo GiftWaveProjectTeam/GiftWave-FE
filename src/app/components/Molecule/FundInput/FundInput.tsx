@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import * as style from "./FundInput.css";
-import Text from "../../Atom/Text/Text";
+import { Text } from "@components";
 
 interface FundInputProps {
   label: string;
@@ -14,7 +14,7 @@ export default function FundInput({
   required
 }: FundInputProps) {
   return (
-    <div className={style.wrapper}>
+    <label className={style.wrapper}>
       <div className={style.title}>
         <Text type="inputTitle">
           {label}
@@ -22,6 +22,6 @@ export default function FundInput({
         </Text>
       </div>
       <div className={style.contents}>{children}</div>
-    </div>
+    </label>
   );
 }
