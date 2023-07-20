@@ -42,7 +42,7 @@ export const titleVariant = styleVariants({
   },
   inputTitle: {
     fontSize: 18,
-    fontWeight: 500,
+    fontWeight: 900,
     color: "#353535"
   }
 });
