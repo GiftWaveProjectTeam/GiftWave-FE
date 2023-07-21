@@ -1,5 +1,5 @@
 "use client";
-import { Button, Form, GiftWaveLogo, LabelInput, Text } from "@components";
+import { Button, Form, RadioButton, LabelInput, Text } from "@components";
 import { useForm } from "@hooks";
 import { formValidator } from "@utils";
 import PhoneAuth from "../PhoneAuth/PhoneAuth";
@@ -8,11 +8,13 @@ import { useState } from "react";
 
 const SignupContent = () => {
   const [isConfirm, setIsConfirm] = useState<boolean>(false);
+  const [radio, setRadio] = useState<number>(0);
   const { values, errors, changeHandler, submitHandler } = useForm({
     initialValues: {
       userId: "",
       password: "",
       passwordConfirm: "",
+      birthday: "",
     },
     onSubmit: async ({ userId, password }) => {
       const response = await fetch("/register", {
@@ -29,7 +31,7 @@ const SignupContent = () => {
         }),
       });
     },
-    validate: ({ userId, password, passwordConfirm }) => {
+    validate: ({ userId, password, passwordConfirm, birthday }) => {
       const errors: { [key: string]: string } = {};
 
       if (!formValidator.validateUserId(userId)) {
@@ -43,10 +45,15 @@ const SignupContent = () => {
       if (!formValidator.validatePasswordConfirm(password, passwordConfirm)) {
         errors.passwordConfirm = "비밀번호와 같지 않습니다.";
       }
+
+      if (!formValidator.validateBirthday(birthday)) {
+        errors.birthday = "생년월일을 다시 확인해주세요.";
+      }
       return errors;
     },
   });
 
+  console.log(errors);
   return (
     <>
       <div className={styles.margin}>
@@ -83,6 +90,25 @@ const SignupContent = () => {
           maxLength={15}
         />
         <PhoneAuth setIsConfirm={setIsConfirm} />
+        <RadioButton
+          title="성별"
+          radio1Name="남자"
+          radio2Name="여자"
+          radio={radio}
+          onRadio1={() => setRadio(1)}
+          onRadio2={() => setRadio(2)}
+        />
+        <LabelInput
+          name="birthday"
+          label="생년월일"
+          type="text"
+          value={values.birthday}
+          isValid={errors.birthday ? false : true}
+          error={errors.birthday}
+          onChangeHandler={changeHandler}
+          maxLength={10}
+          placeholder="생년월일 8자리"
+        />
         <Button type="submit" size="large" color="signIn" label="회원가입" />
       </Form>
     </>
