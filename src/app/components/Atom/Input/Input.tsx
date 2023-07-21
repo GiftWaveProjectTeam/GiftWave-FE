@@ -10,6 +10,7 @@ interface InputProps {
   disabled?: boolean;
   checked?: boolean;
   placeholder?: string;
+  maxLength?: number;
 }
 
 export default function Input({
@@ -21,6 +22,7 @@ export default function Input({
   disabled,
   checked,
   placeholder,
+  maxLength,
 }: InputProps) {
   return (
     <input
@@ -32,6 +34,7 @@ export default function Input({
       value={value}
       onChange={onChangeHandler}
       placeholder={placeholder}
+      maxLength={maxLength}
     />
   );
 }
