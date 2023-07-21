@@ -27,6 +27,8 @@ const useForm = ({ initialValues, onSubmit, validate }: useFormProps) => {
   };
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     await onSubmit(values);
   };
 
