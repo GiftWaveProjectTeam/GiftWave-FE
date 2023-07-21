@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import "./globalStyle.css";
-import Header from "./components/Organism/Header/Header";
+import { Header } from "@components";
 import Footer from "./components/Footer";
 import Providers from "./providers";
 
