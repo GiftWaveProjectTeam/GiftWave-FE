@@ -7,7 +7,7 @@ const GiftWaveLogo = () => {
       viewBox="0 0 183 72"
       fill="none"
     >
-      <g clip-path="url(#clip0_573_1261)">
+      <g clipPath="url(#clip0_573_1261)">
         <mask
           id="mask0_573_1261"
           maskUnits="userSpaceOnUse"
@@ -20,31 +20,31 @@ const GiftWaveLogo = () => {
             d="M44.5 46V34H27.5V46H44.5Z"
             fill="white"
             stroke="white"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path d="M44.5 46H27.5Z" fill="white" />
           <path
             d="M44.5 46H27.5"
             stroke="white"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M26 30H46V34H26V30Z"
             fill="white"
             stroke="white"
-            stroke-width="4"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinejoin="round"
           />
           <path
             d="M32 26L36 30L40 26"
             stroke="white"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </mask>
         <g mask="url(#mask0_573_1261)">
@@ -52,8 +52,8 @@ const GiftWaveLogo = () => {
           <path
             d="M31 38.6924L33.4247 42.337L36 39.3078L38.5436 42.3847L41 38.6924"
             stroke="white"
-            stroke-width="2"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinejoin="round"
           />
         </g>
       </g>
