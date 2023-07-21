@@ -18,6 +18,7 @@ export { default as InputBox } from "@components/Atom/InputBox/InputBox";
 export { default as LabelInput } from "./Molecule/LabelInput/LabelInput";
 export { default as Title } from "./Molecule/Title/Title";
 export { default as FundingCard } from "./Molecule/FundingCard/FundingCard";
+export { default as RadioButton } from "./Molecule/RadioButton/RadioButton";
 
 //Organism
 export { default as LoginContent } from "./Organism/LoginContent/LoginContent";
