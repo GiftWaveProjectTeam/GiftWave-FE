@@ -9,6 +9,10 @@ const fontWeight = {
 };
 
 const textStyle = {
+  R_12: {
+    fontSize: "12px",
+    fontWeight: fontWeight.regular,
+  },
   R_14: {
     fontSize: "14px",
     fontWeight: fontWeight.regular,
@@ -29,12 +33,28 @@ const textStyle = {
     fontSize: "14px",
     fontWeight: fontWeight.medium,
   },
+  M_16: {
+    fontSize: "16px",
+    fontWeight: fontWeight.medium,
+  },
+  M_18: {
+    fontSize: "18px",
+    fontWeight: fontWeight.medium,
+  },
   SB_18: {
     fontSize: "18px",
     fontWeight: fontWeight.semiBold,
   },
   B_18: {
     fontSize: "18px",
+    fontWeight: fontWeight.bold,
+  },
+  B_20: {
+    fontSize: "20px",
+    fontWeight: fontWeight.bold,
+  },
+  B_30: {
+    fontSize: "30px",
     fontWeight: fontWeight.bold,
   },
 
@@ -51,6 +71,7 @@ const palettle = {
   blue: "#0366FF",
   blue_tin_1: "#8AC0FF",
   blue_tin_2: "#BBD3F9",
+  red: "red",
   white: "#FFFFFF",
   gray_BF: "#BFBFBF",
   gray_E6: "#E6E6E6",
