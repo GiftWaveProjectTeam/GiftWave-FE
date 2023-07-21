@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes.css";
 import { style, styleVariants } from "@vanilla-extract/css";
 
 const base = style({
@@ -8,10 +9,7 @@ const base = style({
   lineHeight: 1,
   backgroundColor: "oatmeal",
   color: "grey",
-  ":hover": {
-    backgroundColor: "blue",
-    color: "white",
-  },
+  cursor: "pointer",
 });
 
 export const sizeVariants = styleVariants({
@@ -32,9 +30,20 @@ export const sizeVariants = styleVariants({
   large: [
     base,
     {
-      fontSize: "16px",
+      fontSize: vars.text.SB_18.fontSize,
+      fontWeight: vars.text.SB_18.fontWeight,
       padding: "12px 24px",
-      width: "350px",
+      width: "100%",
+      height: "56px",
+    },
+  ],
+  auth: [
+    base,
+    {
+      fontSize: vars.text.R_14.fontSize,
+      fontWeight: vars.text.R_14.fontWeight,
+      padding: "20px",
+      minWidth: 100,
     },
   ],
 });
@@ -45,6 +54,22 @@ export const colorVariants = styleVariants({
     {
       backgroundColor: "red",
       color: "white",
+    },
+  ],
+  auth: [
+    base,
+    {
+      backgroundColor: "transparent",
+      border: `1px solid ${vars.palettle.blue_tin_1}`,
+      color: vars.palettle.blue,
+    },
+  ],
+  signIn: [
+    {
+      color: vars.palettle.white,
+      ":hover": {
+        backgroundColor: vars.palettle.blue,
+      },
     },
   ],
 });
