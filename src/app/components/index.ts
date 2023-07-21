@@ -12,6 +12,7 @@ export { default as GiftWaveLogo } from "@components/Atom/GiftWaveLogo/GiftWaveL
 export { default as HiddenIcon } from "@components/Atom/HiddenIcon/HiddenIcon";
 export { default as SocialIcon } from "@/app/components/Atom/SocialIcon/SocialIcon";
 export { default as Form } from "@components/Atom/Form/Form";
+export { default as InputBox } from "@components/Atom/InputBox/InputBox";
 
 //molecules
 export { default as LabelInput } from "./Molecule/LabelInput/LabelInput";
