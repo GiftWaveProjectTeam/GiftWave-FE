@@ -3,13 +3,13 @@ import { style, styleVariants } from "@vanilla-extract/css";
 
 export const title = style({
   fontSize: 40,
-  fontWeight: 700,
+  fontWeight: 700
 });
 
 export const subtitle = style({
   fontSize: 16,
   fontWeight: 500,
-  color: "#BFBFBF",
+  color: "#BFBFBF"
 });
 
 export const titleVariant = styleVariants({
@@ -66,4 +66,9 @@ export const titleVariant = styleVariants({
     fontWeight: vars.text.M_16.fontWeight,
     color: vars.palettle.title,
   },
+  inputTitle: {
+    fontSize: 18,
+    fontWeight: 900,
+    color: "#353535"
+  }
 });

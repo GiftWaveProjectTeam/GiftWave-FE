@@ -15,9 +15,10 @@ export interface TextProps extends React.ComponentProps<"html"> {
     | "logoutComment"
     | "signinComment"
     | "otherLogin"
-    | "RadioButton";
-}
+    | "RadioButton"
+    | "inputTitle";
 
+}
 const Text = ({ children, block, type }: TextProps) => {
   return (
     <>
