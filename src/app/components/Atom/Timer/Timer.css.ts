@@ -1,4 +1,5 @@
-import { style, styleVariants } from "@vanilla-extract/css";
+import { vars } from "@/app/styles/themes.css";
+import { styleVariants } from "@vanilla-extract/css";
 
 export const TimerVariant = styleVariants({
   seconds: {
@@ -7,9 +8,10 @@ export const TimerVariant = styleVariants({
     color: "gray",
   },
   minutes: {
-    fontSize: "14px",
+    fontSize: vars.text.R_16.fontSize,
+    fontWeight: vars.text.R_16.fontWeight,
+    color: vars.palettle.blue,
     width: "3.6em",
-    color: "gray",
   },
   hours: {
     fontSize: "14px",
