@@ -1,6 +1,10 @@
+"use client";
+
 import React from "react";
 import * as styles from "./Header.css";
 import GiftWaveLogo from "../../Atom/GiftWaveLogo/GiftWaveLogo";
+import { Text } from "@components";
+import { usePathname, useRouter } from "next/navigation";
 
 type User = {
   name?: string;
@@ -11,9 +15,19 @@ interface NavProps {
 }
 
 export default function Header({ user }: NavProps) {
+  const router = useRouter();
+
+  const logoClickHandler = () => {
+    router.push("/");
+  };
+
+  const loginClickHandler = () => {
+    router.push("/login");
+  };
+
   return (
     <div className={styles.navCotainer}>
-      <div className={styles.logoBlock}>
+      <div className={styles.logoBlock} onClick={logoClickHandler}>
         <GiftWaveLogo />
       </div>
       <div className={styles.menuContainer}>
@@ -25,13 +39,19 @@ export default function Header({ user }: NavProps) {
       <div className={styles.buttonBar}>
         {user ? (
           <>
-            <label>{user.name}</label>
-            <button>로그아웃</button>
+            <Text type="logoutComment" block={true}>
+              {user.name}
+            </Text>
+            <button className={styles.buttonStyle}>로그아웃</button>
           </>
         ) : (
           <>
-            <div className={styles.commentStyle}>로그인이 필요합니다.</div>
-            <button className={styles.buttonStyle}>로그인</button>
+            <Text type="loginComment" block={true}>
+              로그인이 필요합니다.
+            </Text>
+            <button className={styles.buttonStyle} onClick={loginClickHandler}>
+              로그인
+            </button>
           </>
         )}
       </div>
