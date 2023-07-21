@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes.css";
 import { style, styleVariants } from "@vanilla-extract/css";
 
 export const base = style({
@@ -9,19 +10,19 @@ export const sizeVariants = styleVariants({
   small: [
     base,
     {
-      fontSize: "12px",
+      fontSize: vars.text.M_14.fontSize,
     },
   ],
   medium: [
     base,
     {
-      fontSize: "14px",
+      fontSize: vars.text.M_16.fontSize,
     },
   ],
   large: [
     base,
     {
-      fontSize: "16px",
+      fontSize: vars.text.M_18.fontSize,
     },
   ],
 });
@@ -31,6 +32,11 @@ export const weightVariants = styleVariants({
     base,
     {
       fontWeight: 300,
+    },
+  ],
+  medium: [
+    {
+      fontWeight: 500,
     },
   ],
   bold: [
