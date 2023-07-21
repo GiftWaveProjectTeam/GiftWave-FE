@@ -9,12 +9,21 @@ export { default as Text } from "@components/Atom/Text/Text";
 export { default as Percentage } from "@components/Atom/Percentage/Percentage";
 export { default as SearchIcon } from "@components/Atom/SearchIcon/SearchIcon";
 export { default as GiftWaveLogo } from "@components/Atom/GiftWaveLogo/GiftWaveLogo";
+export { default as HiddenIcon } from "@components/Atom/HiddenIcon/HiddenIcon";
+export { default as SocialIcon } from "@/app/components/Atom/SocialIcon/SocialIcon";
+export { default as Form } from "@components/Atom/Form/Form";
+
 //molecules
 export { default as LabelInput } from "./Molecule/LabelInput/LabelInput";
-export { default as AuthInput } from "./Organism/SignupForm/AuthInput/AuthInput";
 export { default as Title } from "./Molecule/Title/Title";
 export { default as FundingCard } from "./Molecule/FundingCard/FundingCard";
 
 //Organism
-export { default as SignupForm } from "./Organism/SignupForm/SignupForm";
+export { default as LoginContent } from "./Organism/LoginContent/LoginContent";
+export { default as SignupContent } from "./Organism/SignupContent/SignupContent";
 export { default as Header } from "./Organism/Header/Header";
+
+//Template
+
+export { default as LoginTemplate } from "./templates/Login";
+export { default as SignupTemplate } from "./templates/Signup";
