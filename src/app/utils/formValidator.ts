@@ -12,6 +12,28 @@ export const validatePassword = (password: string) => {
   return passwordRegex.test(password);
 };
 
+export const validateBirthday = (birthday: string) => {
+  const [year, month, day] = birthday.split("-").map(Number);
+
+  const curDate = new Date();
+  const curYear = curDate.getFullYear();
+  const curMonth = curDate.getMonth();
+  const curDay = curDate.getDay();
+
+  if (
+    1900 <= year &&
+    year <= curYear &&
+    1 <= month &&
+    month <= curMonth &&
+    1 <= curDay &&
+    curDay <= 31
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 export const validatePasswordEmpty = (password: string) => {
   return password ? true : false;
 };
