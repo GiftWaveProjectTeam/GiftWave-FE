@@ -3,11 +3,12 @@ import { vars } from "@styles/themes.css";
 
 export const navCotainer = style({
   display: "grid",
-  width: "100%",
+  margin: "0 240px",
   gridTemplateColumns: "1fr 2fr 1fr",
-  padding: "12px",
+  padding: "0 24px",
   whiteSpace: "pre-wrap",
   height: 72,
+  boxSizing: "border-box",
 });
 
 export const logoBlock = style({
@@ -47,10 +48,17 @@ export const buttonStyle = style({
   background: "white",
   borderRadius: 4,
   marginLeft: 10,
+  cursor: "pointer",
 });
 
-export const commentStyle = style({
+export const loginStyle = style({
   fontSize: vars.text.M_14.fontSize,
   fontWeight: vars.text.M_14.fontWeight,
   color: vars.palettle.gray_BF,
+});
+
+export const logoutStyle = style({
+  fontSize: vars.text.M_14.fontSize,
+  fontWeight: vars.text.M_14.fontWeight,
+  color: vars.palettle.sub,
 });
