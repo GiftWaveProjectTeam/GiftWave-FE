@@ -14,6 +14,7 @@ interface LabelInputProps {
   type?: "text" | "file" | "password" | "radio" | "select" | "checkbox";
   onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
+  placeholder?: string;
   icons?: () => JSX.Element;
 }
 
@@ -26,6 +27,7 @@ const LabelInput = ({
   type,
   onChangeHandler,
   maxLength,
+  placeholder,
   icons,
 }: LabelInputProps) => {
   return (
@@ -44,6 +46,7 @@ const LabelInput = ({
               onChangeHandler={onChangeHandler}
               className={signIn}
               maxLength={maxLength}
+              placeholder={placeholder}
             />
           ) : (
             <PasswordInput
