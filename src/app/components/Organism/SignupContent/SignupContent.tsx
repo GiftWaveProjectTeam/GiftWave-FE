@@ -1,5 +1,5 @@
 "use client";
-import { Button, Form, LabelInput, Text } from "@components";
+import { Button, Form, GiftWaveLogo, LabelInput, Text } from "@components";
 import { useForm } from "@hooks";
 import { formValidator } from "@utils";
 import PhoneAuth from "../PhoneAuth/PhoneAuth";
@@ -70,7 +70,6 @@ const SignupContent = () => {
           isValid={errors.password ? false : true}
           error={errors.password}
           onChangeHandler={changeHandler}
-          hidden={true}
           maxLength={15}
         />
         <LabelInput
@@ -81,7 +80,6 @@ const SignupContent = () => {
           isValid={errors.passwordConfirm ? false : true}
           error={errors.passwordConfirm}
           onChangeHandler={changeHandler}
-          hidden={true}
           maxLength={15}
         />
         <PhoneAuth setIsConfirm={setIsConfirm} />

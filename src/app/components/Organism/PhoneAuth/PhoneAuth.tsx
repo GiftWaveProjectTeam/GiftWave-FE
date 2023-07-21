@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import * as styles from "./PhoneAuth.css";
-import { Button, Input, Label, Timer } from "@components";
+import { Button, Input, InputBox, Label, Timer } from "@components";
 import classNames from "classnames";
 import { phoneInput } from "../../Atom/Input/Input.css";
 
@@ -51,15 +51,7 @@ const PhoneAuth = ({ setIsConfirm }: PhoneAuthProps) => {
           휴대폰 인증
         </Label>
         <div className={styles.ibContainer}>
-          <div
-            className={classNames(
-              styles.innerInput,
-              styles.baseInput,
-              error === true
-                ? styles.errorInput
-                : phone.length === 13 && styles.successInput
-            )}
-          >
+          <InputBox value={phone} showValid={true} isValid={!error}>
             <Input
               type={"text"}
               name="phone"
@@ -69,7 +61,7 @@ const PhoneAuth = ({ setIsConfirm }: PhoneAuthProps) => {
               maxLength={13}
               placeholder="010-1234-5678"
             />
-          </div>
+          </InputBox>
           <div>
             <Button
               type="button"
@@ -81,7 +73,7 @@ const PhoneAuth = ({ setIsConfirm }: PhoneAuthProps) => {
           </div>
         </div>
         <div>
-          {error === true && (
+          {phone !== "" && error === true && (
             <Label size="small" error={error}>
               휴대폰 번호 형식이 잘못됬습니다.
             </Label>

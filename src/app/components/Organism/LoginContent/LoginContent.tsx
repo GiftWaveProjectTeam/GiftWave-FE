@@ -34,7 +34,6 @@ const LoginContent = () => {
             name="password"
             label="비밀번호"
             type="password"
-            hidden={true}
             value={values.password}
             isValid={errors.password ? false : true}
             error={errors.password}
