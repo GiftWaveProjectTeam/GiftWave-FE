@@ -1,9 +1,5 @@
-import LoginForm from "../components/Organism/LoginForm/LoginForm";
+import { LoginTemplate } from "@components";
 
 export default function Login() {
-  return (
-    <div>
-      <LoginForm />
-    </div>
-  );
+  return <LoginTemplate />;
 }
