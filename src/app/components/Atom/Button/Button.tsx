@@ -2,10 +2,10 @@ import { MouseEvent, ReactNode } from "react";
 import { colorVariants, sizeVariants } from "./Button.css";
 
 export interface ButtonProps {
-  size: "small" | "medium" | "large";
+  size: "small" | "medium" | "large" | "auth";
   label?: string;
   type?: "button" | "reset" | "submit" | undefined;
-  color?: "important";
+  color?: "important" | "auth" | "signIn";
   onClickHandler?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
