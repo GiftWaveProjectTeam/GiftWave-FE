@@ -11,7 +11,7 @@ interface FundInputProps {
 export default function FundInput({
   label,
   children,
-  required
+  required,
 }: FundInputProps) {
   return (
     <label className={style.wrapper}>

@@ -19,6 +19,7 @@ export { default as LabelInput } from "./Molecule/LabelInput/LabelInput";
 export { default as Title } from "./Molecule/Title/Title";
 export { default as FundingCard } from "./Molecule/FundingCard/FundingCard";
 export { default as RadioButton } from "./Molecule/RadioButton/RadioButton";
+export { default as FundInput } from "./Molecule/FundInput/FundInput";
 
 //Organism
 export { default as LoginContent } from "./Organism/LoginContent/LoginContent";

@@ -2,10 +2,18 @@ import { ChangeEvent } from "react";
 import * as styles from "./Input.css";
 
 interface InputProps {
-  type?: "text" | "file" | "password" | "radio" | "select" | "checkbox";
+  type?:
+    | "text"
+    | "file"
+    | "password"
+    | "radio"
+    | "select"
+    | "checkbox"
+    | "date"
+    | "time";
   name?: string;
   className?: string;
-  value?: string;
+  value?: string | number;
   onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   checked?: boolean;
