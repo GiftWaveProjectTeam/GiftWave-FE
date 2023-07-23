@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes.css";
 import { style, styleVariants } from "@vanilla-extract/css";
 
 export const title = style({
@@ -13,32 +14,57 @@ export const subtitle = style({
 
 export const titleVariant = styleVariants({
   title: {
-    fontSize: 40,
-    fontWeight: 700,
-    color: "#000000",
-    width: "100%"
+    fontSize: vars.text.EB_40.fontSize,
+    fontWeight: vars.text.EB_40.fontWeight,
+    color: vars.palettle.title,
+    width: "100%",
   },
   subTitle: {
-    fontSize: 16,
-    fontWeight: 500,
-    color: "#BFBFBF",
-    width: "100%"
+    fontSize: vars.text.R_20.fontSize,
+    fontWeight: vars.text.R_20.fontWeight,
+    color: vars.palettle.gray_BF,
+    width: "100%",
   },
   cardTitle: {
-    fontSize: 20,
-    fontWeight: 700,
-    color: "#353535"
+    fontSize: vars.text.B_20.fontSize,
+    fontWeight: vars.text.B_20.fontWeight,
+    color: vars.palettle.title,
   },
   amount: {
-    fontSize: 18,
-    fontWeight: 500,
-    color: "#353535",
-    width: "100%"
+    fontSize: vars.text.M_18.fontSize,
+    fontWeight: vars.text.M_18.fontWeight,
+    color: vars.palettle.title,
+    width: "100%",
   },
   search: {
-    fontSize: 20,
-    fontWeight: 400,
-    color: "blue"
+    fontSize: vars.text.R_20.fontSize,
+    fontWeight: vars.text.R_20.fontWeight,
+    color: "blue",
+  },
+  loginComment: {
+    fontSize: vars.text.M_14.fontSize,
+    fontWeight: vars.text.M_14.fontWeight,
+    color: vars.palettle.gray_BF,
+  },
+  logoutComment: {
+    fontSize: vars.text.M_14.fontSize,
+    fontWeight: vars.text.M_14.fontWeight,
+    color: vars.palettle.sub,
+  },
+  signinComment: {
+    fontSize: vars.text.B_30.fontSize,
+    fontWeight: vars.text.B_30.fontWeight,
+    color: vars.palettle.title,
+  },
+  otherLogin: {
+    fontSize: vars.text.M_14.fontSize,
+    fontWeight: vars.text.M_14.fontWeight,
+    color: vars.palettle.title,
+  },
+  RadioButton: {
+    fontSize: vars.text.M_16.fontSize,
+    fontWeight: vars.text.M_16.fontWeight,
+    color: vars.palettle.title,
   },
   inputTitle: {
     fontSize: 18,

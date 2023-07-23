@@ -5,9 +5,20 @@ import { titleVariant } from "./Text.css";
 export interface TextProps extends React.ComponentProps<"html"> {
   children: React.ReactNode;
   block?: boolean;
-  type: "title" | "subTitle" | "cardTitle" | "amount" | "search" | "inputTitle";
-}
+  type:
+    | "title"
+    | "subTitle"
+    | "cardTitle"
+    | "amount"
+    | "search"
+    | "loginComment"
+    | "logoutComment"
+    | "signinComment"
+    | "otherLogin"
+    | "RadioButton"
+    | "inputTitle";
 
+}
 const Text = ({ children, block, type }: TextProps) => {
   return (
     <>

@@ -1,17 +1,7 @@
 import { vars } from "@/app/styles/themes.css";
 import { style } from "@vanilla-extract/css";
 
-export const Wrapper = style({
-  width: "100%",
-  height: 80,
-});
-
-export const columnInput = style({
-  display: "flex",
-  flexDirection: "column",
-});
-
-export const InputBlock = style({
+export const base = style({
   width: "100%",
   height: 56,
   border: `1px solid ${vars.palettle.gray_E6}`,
@@ -26,14 +16,14 @@ export const InputBlock = style({
 });
 
 export const okValid = style([
-  InputBlock,
+  base,
   {
     borderColor: vars.palettle.blue_tin_1,
   },
 ]);
 
 export const notValid = style([
-  InputBlock,
+  base,
   {
     borderColor: vars.palettle.red,
   },

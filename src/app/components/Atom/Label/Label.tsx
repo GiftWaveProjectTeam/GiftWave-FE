@@ -7,7 +7,7 @@ interface LabelProps extends ComponentPropsWithRef<"label"> {
   onDrag?: (event: React.DragEvent<HTMLLabelElement>) => void;
   onDrop?: (event: React.DragEvent<HTMLLabelElement>) => void;
   size: "small" | "medium" | "large";
-  weight?: "thin" | "bold";
+  weight?: "thin" | "medium" | "bold";
   error?: boolean;
 }
 

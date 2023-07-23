@@ -1,15 +1,15 @@
 import { render, fireEvent, screen, getByRole } from "@testing-library/react";
-import SignupForm from "./SignupForm";
+import SignupContent from "./SignupContent";
 
-describe("SignupForm", () => {
+describe("SignupContent", () => {
   it("renders the SignupForm without crashing", () => {
-    render(<SignupForm />);
+    render(<SignupContent />);
     const signupButton = screen.getByText("가입하기");
     expect(signupButton).toBeInTheDocument();
   });
 
   it("successfully submits the with valid inputs", async () => {
-    render(<SignupForm />);
+    render(<SignupContent />);
     const userIdInput = screen.getByLabelText("아이디");
     const passwordInput = screen.getByLabelText("비밀번호");
     const passwordConfirm = screen.getByLabelText("비밀번호 확인");

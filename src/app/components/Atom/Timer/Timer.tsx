@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { TimerVariant } from "./Timer.css";
 import { useInterval } from "@hooks";
+import classNames from "classnames";
 
 interface TimerProps {
   maxTime: number;
@@ -48,10 +49,10 @@ const Timer = ({
   }, [maxTime]);
 
   return (
-    <div className={TimerVariant[mode]}>
+    <div className={classNames(TimerVariant[mode])}>
       {mode === "hours" &&
-        (hours !== "0" ? <span>{hours} : </span> : <span>00 : </span>)}
-      {minutes !== "0" ? <span>{minutes} : </span> : <span>00 : </span>}
+        (hours !== "0" ? <span>{hours}:</span> : <span>00</span>)}
+      {minutes !== "0" ? <span>{minutes}:</span> : <span>00:</span>}
       {seconds !== "0" ? <span>{seconds}</span> : <span>00</span>}
     </div>
   );

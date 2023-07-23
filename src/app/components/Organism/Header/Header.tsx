@@ -1,10 +1,10 @@
+"use client";
+
 import React from "react";
-import {
-  ButtonBar,
-  MenuContainer,
-  gridItem,
-  navCotainer,
-} from "../../../styles/nav.css";
+import * as styles from "./Header.css";
+import GiftWaveLogo from "../../Atom/GiftWaveLogo/GiftWaveLogo";
+import { Text } from "@components";
+import { usePathname, useRouter } from "next/navigation";
 
 type User = {
   name?: string;
@@ -15,23 +15,44 @@ interface NavProps {
 }
 
 export default function Header({ user }: NavProps) {
+  const router = useRouter();
+
+  const logoClickHandler = () => {
+    router.push("/");
+  };
+
+  const loginClickHandler = () => {
+    router.push("/login");
+  };
+
   return (
-    <div className={navCotainer}>
-      <div>GiftWave</div>
-      <div className={MenuContainer}>
-        <div className={gridItem}>메인 홈</div>
-        <div className={gridItem}>펀딩하기</div>
-        <div className={gridItem}>펀딩생성</div>
-        <div className={gridItem}>마이페이지</div>
+    <div className={styles.navCotainer}>
+      <div className={styles.logoBlock} onClick={logoClickHandler}>
+        <GiftWaveLogo />
       </div>
-      <div className={ButtonBar}>
+      <div className={styles.menuContainer}>
+        <div className={styles.gridItem}>메인 홈</div>
+        <div className={styles.gridItem}>펀딩하기</div>
+        <div className={styles.gridItem}>펀딩생성</div>
+        <div className={styles.gridItem}>마이페이지</div>
+      </div>
+      <div className={styles.buttonBar}>
         {user ? (
           <>
-            <label>{user.name}</label>
-            <button>로그아웃</button>
+            <Text type="logoutComment" block={true}>
+              {user.name}
+            </Text>
+            <button className={styles.buttonStyle}>로그아웃</button>
           </>
         ) : (
-          <button>로그인</button>
+          <>
+            <Text type="loginComment" block={true}>
+              로그인이 필요합니다.
+            </Text>
+            <button className={styles.buttonStyle} onClick={loginClickHandler}>
+              로그인
+            </button>
+          </>
         )}
       </div>
     </div>

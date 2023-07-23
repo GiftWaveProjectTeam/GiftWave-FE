@@ -1,16 +1,21 @@
-import React, { ChangeEvent } from "react";
-import * as inputStyle from "@components/Atom/Input/Input.css";
-import { columnInput, Wrapper } from "./LabelInput.css";
-import { Input, Label } from "@components";
+"use client";
+import React, { ChangeEvent, useCallback, useState } from "react";
+import { HiddenIcon, Input, InputBox, Label } from "@components";
+
+import * as styles from "./LabelInput.css";
+import { signIn } from "../../Atom/Input/Input.css";
 
 interface LabelInputProps {
   label: string;
   value: string;
+  name: string;
   isValid: boolean;
   error: string;
-  name: string;
   type?: "text" | "file" | "password" | "radio" | "select" | "checkbox";
   onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
+  maxLength?: number;
+  placeholder?: string;
+  icons?: () => JSX.Element;
 }
 
 const LabelInput = ({
@@ -21,24 +26,41 @@ const LabelInput = ({
   name,
   type,
   onChangeHandler,
+  maxLength,
+  placeholder,
+  icons,
 }: LabelInputProps) => {
   return (
-    <div className={Wrapper}>
-      <div className={columnInput}>
-        <Label size="medium">{label} </Label>
-        <Input
-          type={type}
-          name={name}
-          className={`${inputStyle.base}
-        ${
-          value !== "" && (isValid ? inputStyle.okValid : inputStyle.notValid)
-        }`}
-          value={value}
-          onChangeHandler={onChangeHandler}
-        />
+    <div className={styles.Wrapper}>
+      <div className={styles.columnInput}>
+        <Label size="medium" weight="medium">
+          {label}
+        </Label>
+        <InputBox value={value} showValid={true} isValid={isValid}>
+          {icons && icons()}
+          {type !== "password" ? (
+            <Input
+              type={type}
+              name={name}
+              value={value}
+              onChangeHandler={onChangeHandler}
+              className={signIn}
+              maxLength={maxLength}
+              placeholder={placeholder}
+            />
+          ) : (
+            <PasswordInput
+              value={value}
+              name={name}
+              type={type}
+              onChangeHandler={onChangeHandler}
+              maxLength={maxLength}
+            />
+          )}
+        </InputBox>
       </div>
       {value !== "" && !isValid && (
-        <Label size="medium" error={!isValid}>
+        <Label size="small" error={!isValid}>
           {error}
         </Label>
       )}
@@ -47,3 +69,45 @@ const LabelInput = ({
 };
 
 export default LabelInput;
+
+interface PasswordInputProps {
+  value: string;
+  name: string;
+  type?: "text" | "file" | "password" | "radio" | "select" | "checkbox";
+  onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
+  maxLength?: number;
+}
+
+const PasswordInput = ({
+  value,
+  name,
+  type,
+  onChangeHandler,
+  maxLength,
+}: PasswordInputProps) => {
+  const [show, setShow] = useState(false);
+
+  const ohShow = useCallback(() => {
+    setShow(true);
+  }, []);
+
+  const onHidden = useCallback(() => {
+    setShow(false);
+  }, []);
+
+  return (
+    <>
+      <Input
+        type={show === false ? type : "text"}
+        name={name}
+        value={value}
+        onChangeHandler={onChangeHandler}
+        className={signIn}
+        maxLength={maxLength}
+      />
+      <div onMouseDown={ohShow} onMouseUp={onHidden}>
+        <HiddenIcon />
+      </div>
+    </>
+  );
+};
