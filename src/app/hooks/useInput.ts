@@ -12,6 +12,6 @@ export const useInput = (initialValue: FundItem) => {
   return {
     onChangeHandler,
     inputValue,
-    setInputValue,
+    setInputValue
   };
 };
