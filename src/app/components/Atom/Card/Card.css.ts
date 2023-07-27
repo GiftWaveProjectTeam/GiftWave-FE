@@ -5,6 +5,7 @@ export const base = style({
   height: 342,
   border: "none",
   boxSizing: "border-box",
+  backgroundColor: "white",
 });
 
 export const cardVariants = styleVariants({
