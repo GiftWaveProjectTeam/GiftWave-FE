@@ -29,6 +29,31 @@ export const List: Story = {
         maxAmount: 350000,
         curAmount: 100000,
       },
+      {
+        title: "뉴진스 민지의 생일선물 모금 펀딩 함께해요!",
+        maxAmount: 350000,
+        curAmount: 100000,
+      },
+      {
+        title: "뉴진스 민지의 생일선물 모금 펀딩 함께해요!",
+        maxAmount: 350000,
+        curAmount: 100000,
+      },
+      {
+        title: "뉴진스 민지의 생일선물 모금 펀딩 함께해요!",
+        maxAmount: 350000,
+        curAmount: 100000,
+      },
+      {
+        title: "뉴진스 민지의 생일선물 모금 펀딩 함께해요!",
+        maxAmount: 350000,
+        curAmount: 100000,
+      },
+      {
+        title: "뉴진스 민지의 생일선물 모금 펀딩 함께해요!",
+        maxAmount: 350000,
+        curAmount: 100000,
+      },
     ],
   },
 };
