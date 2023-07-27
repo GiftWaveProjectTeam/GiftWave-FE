@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Header from "./Header";
+import { useRouter } from "next/router";
 
 const meta: Meta<typeof Header> = {
   title: "Organism/Header",
@@ -16,11 +17,7 @@ export default meta;
 type Story = StoryObj<typeof Header>;
 
 export const LoggedOut: Story = {
-  args: {
-    user: {
-      name: "Jane Doe",
-    },
-  },
+  args: {},
 };
 
 export const LoggedIn: Story = {};
