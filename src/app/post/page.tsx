@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Input, FundInput } from "@components";
 import { useInput } from "../hooks/useInput";
 import { usePreview } from "../hooks/usePreview";
 import { usePost } from "../hooks/usePost";
+import PreviewBox from "../components/Molecule/PreviewBox/PreviewBox";
+import * as styles from "@styles/post.css";
 
 export type FundItem = {
   title: string;
@@ -35,13 +37,15 @@ export default function PostPage() {
     content: ""
   };
 
-  const { onChangeHandler, inputValue, setInputValue } = useInput(item);
+  const { onChangeHandler, inputValue } = useInput(item);
   const { preview, previewUrl } = usePreview();
   const { submitDiaryHandler, fileInputHandler, fileDropHandler, photo } =
     usePost(inputValue);
 
   const changeFileHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const imgFile = (event.target.files as FileList)[0];
     fileInputHandler(event);
+    preview(imgFile);
   };
 
   // 드래그앤 드랍
@@ -64,12 +68,12 @@ export default function PostPage() {
   };
 
   useEffect(() => {
-    return () => {};
-  }, []);
+    preview(photo);
+  }, [photo]);
 
   return (
-    <form onSubmit={submitFormHandler}>
-      <FundInput label="펀딩제목">
+    <form onSubmit={submitFormHandler} className={styles.container}>
+      <FundInput label="펀딩제목" required>
         <Input
           name="title"
           value={inputValue.title}
@@ -121,6 +125,7 @@ export default function PostPage() {
         <Input
           name="accountNum"
           value={inputValue.accountNum}
+          onChangeHandler={onChangeHandler}
           placeholder="계좌번호를 입력해주세요."
         />
         <Input
@@ -147,6 +152,7 @@ export default function PostPage() {
           />
         </label>
       </FundInput>
+      <PreviewBox url={previewUrl} />
       <FundInput label="펀딩내용">
         <Input
           name="content"
