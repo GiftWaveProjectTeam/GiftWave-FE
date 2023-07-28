@@ -5,12 +5,13 @@ export const wrapper = style({
   display: "grid",
   gridTemplateColumns: "1fr 3fr",
   height: "fit-content",
-  padding: 5,
+  padding: 20,
   margin: 5
 });
 
 export const title = style({
   display: "flex"
+
   //   border: "1px solid"
 });
 
