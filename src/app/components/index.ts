@@ -15,6 +15,8 @@ export { default as Form } from "@components/Atom/Form/Form";
 export { default as InputBox } from "@components/Atom/InputBox/InputBox";
 export { default as ArrowLeft } from "@components/Atom/Arrow/Left";
 export { default as ArrowRight } from "@components/Atom/Arrow/Right";
+export { default as CalendarIcon } from "@components/Atom/CalendarIcon/CalendarIcon";
+
 //molecules
 export { default as LabelInput } from "./Molecule/LabelInput/LabelInput";
 export { default as Title } from "./Molecule/Title/Title";
