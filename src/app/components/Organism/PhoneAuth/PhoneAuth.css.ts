@@ -36,6 +36,7 @@ export const innerInput = style({
 export const confirmInput = style({
   width: "100%",
   height: 56,
+  gap: 8,
 });
 
 export const errorInput = style({
@@ -44,4 +45,8 @@ export const errorInput = style({
 
 export const successInput = style({
   border: `1px solid ${vars.palettle.blue_tin_2}`,
+});
+
+export const boxMargin = style({
+  marginTop: 12,
 });

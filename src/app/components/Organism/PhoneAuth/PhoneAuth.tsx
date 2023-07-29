@@ -6,7 +6,14 @@ import {
   useState,
 } from "react";
 import * as styles from "./PhoneAuth.css";
-import { Button, Input, InputBox, Label, Timer } from "@components";
+import {
+  Button,
+  Input,
+  InputBox,
+  Label,
+  Timer,
+  CalendarIcon,
+} from "@components";
 import classNames from "classnames";
 import { phoneInput } from "../../Atom/Input/Input.css";
 
@@ -42,7 +49,7 @@ const PhoneAuth = ({ setIsConfirm }: PhoneAuthProps) => {
     setConfirm(newValue);
   };
 
-  const onConfirmHandler = (e: MouseEvent<HTMLButtonElement>) => {};
+  console.log(error);
 
   return (
     <div>
@@ -80,29 +87,30 @@ const PhoneAuth = ({ setIsConfirm }: PhoneAuthProps) => {
           )}
         </div>
       </div>
-      <div style={{ marginTop: "12px" }}>
-        <div style={{ display: "flex", gap: "12px" }}>
-          <div className={classNames(styles.baseInput, styles.confirmInput)}>
-            <Input
-              type="text"
-              name="PhoneConfirm"
-              value={confirm}
-              onChangeHandler={onAuthRequestHandler}
-              className={phoneInput}
-              maxLength={6}
-              placeholder="인증번호 6자리를 입력하세요."
+      <div className={styles.boxMargin}>
+        <div className={classNames(styles.baseInput, styles.confirmInput)}>
+          <CalendarIcon />
+          <Input
+            type="text"
+            name="PhoneConfirm"
+            value={confirm}
+            onChangeHandler={onAuthRequestHandler}
+            className={phoneInput}
+            maxLength={6}
+            placeholder="인증번호 6자리를 입력하세요."
+          />
+          {request && (
+            <Timer
+              maxTime={120}
+              trigger={request}
+              setTrigger={setRequest}
+              mode="minutes"
             />
-            {request && (
-              <Timer
-                maxTime={10}
-                trigger={request}
-                setTrigger={setRequest}
-                mode="minutes"
-              />
-            )}
-          </div>
+          )}
+        </div>
+        <div className={styles.boxMargin}>
           <Button
-            size="auth"
+            size="confirm"
             color="auth"
             label="확인"
             onClickHandler={onClickHandler}

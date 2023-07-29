@@ -5,6 +5,8 @@ import { Button, Form, LabelInput, Text } from "@components";
 
 import * as styles from "./LoginContent.css";
 import SocialLogin from "./SocialLogin/SocialLogin";
+import { MouseEvent } from "react";
+import { useRouter } from "next/navigation";
 
 const LoginContent = () => {
   const { values, errors, changeHandler, submitHandler } = useForm({
@@ -14,6 +16,14 @@ const LoginContent = () => {
     },
     onSubmit: async () => {},
   });
+
+  const router = useRouter();
+
+  const clickHandler = (event: MouseEvent<HTMLSpanElement>) => {
+    const { id } = event.target as HTMLSpanElement;
+
+    if (id === "signup") router.push("/signup");
+  };
 
   return (
     <>
@@ -39,14 +49,20 @@ const LoginContent = () => {
             error={errors.password}
             onChangeHandler={changeHandler}
           />
-          <Button type="submit" size="large" color="signIn" label="회원가입" />
+          <Button type="submit" size="large" color="signIn" label="로그인" />
         </Form>
         <div className={styles.subMenu}>
-          <span className={styles.hover}>비밀번호 찾기</span>
+          <span onClick={clickHandler} id="searchPw" className={styles.hover}>
+            비밀번호 찾기
+          </span>
           <span>|</span>
-          <span className={styles.hover}>아이디 찾기</span>
+          <span onClick={clickHandler} id="searchId" className={styles.hover}>
+            아이디 찾기
+          </span>
           <span>|</span>
-          <span className={styles.hover}>회원가입</span>
+          <span onClick={clickHandler} id="signup" className={styles.hover}>
+            회원가입
+          </span>
         </div>
         <SocialLogin />
       </div>

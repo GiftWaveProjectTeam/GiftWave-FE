@@ -46,6 +46,16 @@ export const sizeVariants = styleVariants({
       minWidth: 100,
     },
   ],
+
+  confirm: [
+    base,
+    {
+      fontSize: vars.text.R_14.fontSize,
+      fontWeight: vars.text.R_14.fontWeight,
+      padding: "20px",
+      width: "100%",
+    },
+  ],
 });
 
 export const colorVariants = styleVariants({
@@ -59,16 +69,20 @@ export const colorVariants = styleVariants({
   auth: [
     base,
     {
-      backgroundColor: "transparent",
+      backgroundColor: vars.palettle.blue,
       border: `1px solid ${vars.palettle.blue_tin_1}`,
-      color: vars.palettle.blue,
+      color: vars.palettle.white,
+      ":hover": {
+        opacity: 0.7,
+      },
     },
   ],
   signIn: [
     {
       color: vars.palettle.white,
+      backgroundColor: vars.palettle.blue,
       ":hover": {
-        backgroundColor: vars.palettle.blue,
+        opacity: 0.7,
       },
     },
   ],
