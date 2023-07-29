@@ -1,9 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { StaticImageData } from "next/image";
 import * as styles from "./Slide.css";
-import FundingCard from "../FundingCard/FundingCard";
-import Left from "../../Atom/Arrow/Left";
-import Right from "../../Atom/Arrow/Right";
+import { FundingCard, ArrowLeft, ArrowRight } from "@components";
 
 type data = {
   title: string;
@@ -46,16 +44,13 @@ const Slide = ({ data }: SlideProps) => {
 
   return (
     <div className={styles.wrapper}>
-      <div
-        className="slider"
-        style={{ display: "flex", alignItems: "center", gap: 20 }}
-      >
-        <Left onClick={prevSlide} />
+      <div className={styles.container}>
+        <ArrowLeft onClick={prevSlide} />
         <div className={styles.slideWapper}>
-          <div className={styles.container} ref={slideWrapper}>
+          <div className={styles.slideContainer} ref={slideWrapper}>
             {data &&
               data.map((value, index) => (
-                <div key={index} className={styles.carouselItem}>
+                <div key={index} className={styles.slidelItem}>
                   <FundingCard
                     title={value.title}
                     maxAmount={value.maxAmount}
@@ -66,7 +61,7 @@ const Slide = ({ data }: SlideProps) => {
               ))}
           </div>
         </div>
-        <Right onClick={nextSlide} />
+        <ArrowRight onClick={nextSlide} />
       </div>
     </div>
   );

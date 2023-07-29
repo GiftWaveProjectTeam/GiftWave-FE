@@ -4,8 +4,13 @@ export const wrapper = style({
   width: "100%",
   height: "auto",
 });
-
 export const container = style({
+  display: "flex",
+  alignItems: "center",
+  gap: 20,
+});
+
+export const slideContainer = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -21,13 +26,7 @@ export const slideWapper = style({
   borderRadius: 10,
 });
 
-export const slide = style({
-  position: "absolute",
-  opacity: 1,
-  transition: "transform 0.3s ease",
-});
-
-export const carouselItem = style({
+export const slidelItem = style({
   position: "absolute",
   transition: "transform 0.5s ease",
 });
